@@ -1,8 +1,15 @@
 import React from "react";
+import styled from "styled-components";
+
+const StyledH3 = styled.h3`
+    font-size: 1rem;
+    font-weight: 600;
+    color: red;
+`
 
 function User({ details }) {
     if (!details) {
-        return <h3>Loading User Details</h3>
+        return <StyledH3>Loading User Details</StyledH3>
     }
 
     return (
