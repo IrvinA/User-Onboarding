@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Form from './Form';
+import User from './User';
 import schema from './formSchema';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -13,12 +14,14 @@ const StyledH1 = styled.h1`
 
 const initialFormValues = {
   name: '',
+  age: '',
   email: '',
   password: '',
   tos: false,
 }
 const initialErrors = {
   name: '',
+  age: '',
   email: '',
   password: '',
   tos: '',
@@ -63,6 +66,7 @@ function App() {
   const formSubmit = () => {
     const newUser = {
       name: formValues.name.trim(),
+      age: formValues.age,
       email: formValues.email.trim(),
       password: formValues.password.trim(),
       tos: formValues.tos

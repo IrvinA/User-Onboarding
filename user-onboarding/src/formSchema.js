@@ -6,6 +6,11 @@ const formSchema = yup.object().shape({
         .trim()
         .required('Please type in a name')
         .min(1, 'Name field cannot be empty'),
+    age: yup
+        .number()
+        .required('Please enter your age')
+        .positive()
+        .integer(),
     email: yup
         .string()
         .email('Must enter a valid email')
