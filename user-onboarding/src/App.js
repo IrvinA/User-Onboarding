@@ -9,7 +9,12 @@ import styled from 'styled-components';
 const StyledH1 = styled.h1`
   text-align: center;
   font-size: 4rem;
-  text-shadow: 2px 2px 4px lime;
+  text-shadow: 2px 2px 2px lime;
+  background-color: black;
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 15px;
 `
 
 const initialFormValues = {
