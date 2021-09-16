@@ -53,5 +53,34 @@ describe("User Onboarding App", () => {
                 .should('have.value', 'on')
                 .click();
         })
+        it('submit button is activated after all fields have been filled', () => {
+            nameInput().type('Test User');
+            ageInput().type('45');
+            emailInput().type('test@test.test');
+            passwordInput().type('password');
+            tosInput().click();
+            submitButton().should('not.be.disabled');
+        })
+    })
+
+    describe('All input fields can be filled and a new user can be submitted, an empty field will trigger the validation text', () => {
+        it('a new user can be submitted', () => {
+            nameInput().type('Test User');
+            ageInput().type('45');
+            emailInput().type('test@test.test');
+            passwordInput().type('password');
+            tosInput().click();
+            submitButton().click();
+            cy.contains('Test User');
+        })
+        it('an empty field or less than 8 character password will trigger validation text', () => {
+            nameInput().type('Test User');
+            ageInput().type('45');
+            emailInput().type('test@test.test');
+            passwordInput().type('pass');
+            tosInput().click();
+            submitButton().should('be.disabled');
+            cy.contains('Must be at least 8 characters long');
+        })
     })
 })
