@@ -101,7 +101,7 @@ function Form(props) {
             <div>
                 <div className='title'>
                     <h2>Add New User</h2>
-                    <button disabled={disabled}>Submit</button>
+                    <button id='button' disabled={disabled}>Submit</button>
                 </div>
                 <div className='errors'>
                     <div>{errors.name}</div>
