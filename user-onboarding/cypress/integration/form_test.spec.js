@@ -76,11 +76,12 @@ describe("User Onboarding App", () => {
         it('an empty field or less than 8 character password will trigger validation text', () => {
             nameInput().type('Test User');
             ageInput().type('45');
-            emailInput().type('test@test.test');
+            emailInput().type('test');
             passwordInput().type('pass');
             tosInput().click();
             submitButton().should('be.disabled');
             cy.contains('Must be at least 8 characters long');
+            cy.contains('Must enter a valid email');
         })
     })
 })
